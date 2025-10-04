@@ -8,7 +8,6 @@
 |
 */
 
-import LoggingMiddleware from '#middleware/LoggingMiddleware'
 import router from '@adonisjs/core/services/router'
 import server from '@adonisjs/core/services/server'
 
@@ -24,12 +23,8 @@ server.errorHandler(() => import('#exceptions/handler'))
  * the request URL.
  */
 server.use([
-   () => Promise.resolve({ default: LoggingMiddleware }), 
   () => import('@adonisjs/cors/cors_middleware'),
-
-  () => import('#middleware/container_bindings_middleware'),
-  () => import('@adonisjs/static/static_middleware'),
-  () => import('@adonisjs/vite/vite_middleware'),
+  () => import('#middleware/container_bindings_middleware')
 ])
 
 /**
@@ -38,8 +33,6 @@ server.use([
  */
 router.use([
   () => import('@adonisjs/core/bodyparser_middleware'),
-  () => import('@adonisjs/session/session_middleware'),
-  // () => import('@adonisjs/shield/shield_middleware'),
 ])
 
 /**
