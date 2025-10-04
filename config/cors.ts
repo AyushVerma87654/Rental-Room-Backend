@@ -12,7 +12,7 @@ const corsConfig = defineConfig({
     'http://localhost:5173',
     'https://renter-room-frontend.netlify.app',
   ],
-  methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE','OPTIONS'],
   headers: true,
   exposeHeaders: [],
   credentials: true,
