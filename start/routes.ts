@@ -13,3 +13,11 @@ import router from '@adonisjs/core/services/router'
 
 router.post('/update-room', [RoomsController, 'updateRoom'])
 router.post('/update-price', [BillingsController, 'updatePrice'])
+router.route('/update-room', ['OPTIONS'], async ({ response }) => {
+    console.log("update room", );
+  return response.noContent()
+})
+
+router.route('/update-price', ['OPTIONS'], async ({ response }) => {
+  return response.noContent()
+})
