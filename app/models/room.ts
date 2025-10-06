@@ -2,12 +2,12 @@ import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 
 export enum RoomStatus {
-  OCCUPIED = 'OCCUPIED',
-  VACANT = 'VACANT',
+  occupied = 'OCCUPIED',
+  vacant = 'VACANT',
 }
 
 export default class Room extends BaseModel {
-  @column({ isPrimary: true })
+  @column({ isPrimary: true, serializeAs: null })
   declare id: number
 
   @column()
@@ -25,9 +25,9 @@ export default class Room extends BaseModel {
   @column()
   declare status: RoomStatus
 
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true, serializeAs: null })
   declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  declare updatedAt: DateTime
+  declare lastUpdatedAt: DateTime
 }

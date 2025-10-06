@@ -12,7 +12,7 @@ export default class extends BaseSchema {
       table.string('reading')
       table.enum('status', ['OCCUPIED', 'VACANT'])
       table.timestamp('created_at')
-      table.timestamp('updated_at')
+      table.timestamp('last_updated_at')
     })
   }
 

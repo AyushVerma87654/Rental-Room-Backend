@@ -8,12 +8,12 @@ import { defineConfig } from '@adonisjs/cors'
  */
 const corsConfig = defineConfig({
   enabled: true,
-  origin:'*',
+  origin: '*',
   // origin: [
   //   'http://localhost:5173',
   //   'https://renter-room-frontend.netlify.app',
   // ],
-  methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE','OPTIONS'],
+  methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   headers: true,
   exposeHeaders: [],
   credentials: false,
