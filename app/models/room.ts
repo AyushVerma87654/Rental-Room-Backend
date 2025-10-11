@@ -6,6 +6,21 @@ export enum RoomStatus {
   vacant = 'VACANT',
 }
 
+export type BillingHistoryEntry = {
+  rent: number
+  renterName: string
+  billingAmount: number
+  readingFrom: number
+  readingAt: number
+  billedAt: DateTime
+}
+
+export type BillingHistory = {
+  first: BillingHistoryEntry
+  second: BillingHistoryEntry
+  third: BillingHistoryEntry
+}
+
 export default class Room extends BaseModel {
   @column({ isPrimary: true, serializeAs: null })
   declare id: number
@@ -21,6 +36,12 @@ export default class Room extends BaseModel {
 
   @column()
   declare reading: number
+
+  @column()
+  declare rent: number
+
+  @column()
+  declare billingHistory: BillingHistory
 
   @column()
   declare status: RoomStatus
