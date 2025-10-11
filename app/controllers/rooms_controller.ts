@@ -9,7 +9,6 @@ export default class RoomsController {
   public async fetchRooms(ctx: HttpContext) {
     try {
       const rooms = await Room.query().orderBy('id', 'asc')
-      console.log('rooms', rooms)
       await new BillingsController().fetchPrice(ctx)
       const price = ctx.response.getBody().price
       return ctx.response.json({ rooms, price })
@@ -31,7 +30,6 @@ export default class RoomsController {
   public async updateData({ response }: HttpContext) {
     try {
       const data = await saveData()
-      console.log('data', data)
       return response.json(data)
     } catch (error) {
       return response.json({ responseDetails: { error } })
