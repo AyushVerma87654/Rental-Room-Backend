@@ -40,7 +40,6 @@ export default class RoomsController {
     try {
       const validatedData = await request.validateUsing(billingValidator)
       const room = await Room.findByOrFail({ roomId: validatedData.roomId })
-
       const newEntry: BillingHistoryEntry = {
         rent: validatedData.rent,
         renterName: validatedData.renterName,
@@ -57,9 +56,8 @@ export default class RoomsController {
       }
       room.billingHistory = updatedHistory
       room.reading = validatedData.readingAt
-      await room.save()
-
-      return response.ok({ message: 'Billing history updated' })
+      const savedRoom = await room.save()
+      return response.ok({ message: 'Billing history updated', room: savedRoom })
     } catch (error) {
       console.error(error)
       return response.internalServerError({ message: 'Failed to update billing history' })

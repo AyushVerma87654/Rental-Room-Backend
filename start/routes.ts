@@ -14,6 +14,6 @@ import router from '@adonisjs/core/services/router'
 router.get('/fetch-room', [RoomsController, 'fetchRooms'])
 router.post('/update-room', [RoomsController, 'updateRoom'])
 router.get('/update-data', [RoomsController, 'updateData'])
-router.get('/update-billing', [RoomsController, 'updateBilling'])
+router.post('/update-billing', [RoomsController, 'updateBilling'])
 
 router.post('/update-price', [BillingsController, 'updatePrice'])
